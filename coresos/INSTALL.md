@@ -2,8 +2,8 @@
 
 ## Prerequisite
 
-The apu must have Internet access on anyone of its interfaces configures with
-dhcp.
+The apu must have Internet access on any of its interfaces configured with
+DHCP.
 
 ## Installation
 
