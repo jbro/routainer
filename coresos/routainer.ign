@@ -55,14 +55,14 @@ storage:
           AuthenticationMethods publickey
 systemd:
   units:
-    - name: media-data.mount
+    - name: data.mount
       enable: true
       contents: |
         [Unit]
         Before=local-fs.target
         [Mount]
         What=/dev/sdb
-        Where=/media/data
+        Where=/data
         Type=xfs
         [Install]
         WantedBy=local-fs.target
@@ -70,15 +70,3 @@ locksmith:
   reboot_strategy: reboot
   window_start: Thu 04:00
   window_length: 1h
-networkd:
-  units:
-    - name: enp3s0.network
-      contents: |
-        [Match]
-        Name=enp3s0
-
-        [Network]
-        Description=MGMT
-        Address=192.168.0.3/24
-        Gateway=192.168.0.1
-        DNS=91.239.100.100
