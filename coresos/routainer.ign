@@ -7,7 +7,7 @@ passwd:
       ssh_authorized_keys:
         - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDWb378qIEp40+sK6DFK22bKPf68Mo6kKpt0Y+suJBjnxcJKU+mknSlGjcps0Modlz6O5l9pcm8HTVZJhrwvQm/beY86/BG7W3rlS/AKWCf4gX/Ckr/Drw8l/awCu1J2W8qs9h+ocWzgRU3zkFOUMEl/8FMinKnNbrSrmaQ/cXrtyH5enIm4wlRSUdMlf8NrwUsZlWyttIrlZ9uFxANc4f398Tq2AOSiOyEPrZZ2IPWLlxSZA+s15zf9xLTaeo0Nkg0EDng61fxMuMKBSGz88I7a21UWRfDTGfq91t1Icsj4Bv3lbUKhGIPzIlQJMhynQRQ8GTSNFfQckrfO7lff+KCwuDt6KNQ9aS/PB3Is/lXDvlYOUZnIzoe0lGKRyDFwCaiAJpis/pPB/bcheZ0gXYSdYxUE6HdbLFIFY8Fj8ZzHpbkKWGEP54ArTlJcT//b2KlGmLQQ5rJ5eDrEBMXdn2+RnwnLCn++lqmdonOWIT2cEBZY3VTEPcY19RD4R/4DkWEjGHbDhWFBFCY1gVGUayn1rmWW9mcdEDBy1jtrn7DTMk91xlafn+bNEzgQRboDnglD5iYkWaJ1qKbCM5s2EnbW+5s+YRwMDutXpvHiELWraB7NBBaoipnjSEYMEqXidg/BN71xDGt6eX/InoiLiXhiEUSssofHCgYu/y+Kacjaw== lunchbox"
     - name: jbr
-      shell: /usr/bin/toolbox
+      shell: /data/routainer/coresos/toolbox-ssh
       ssh_authorized_keys:
         - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDWb378qIEp40+sK6DFK22bKPf68Mo6kKpt0Y+suJBjnxcJKU+mknSlGjcps0Modlz6O5l9pcm8HTVZJhrwvQm/beY86/BG7W3rlS/AKWCf4gX/Ckr/Drw8l/awCu1J2W8qs9h+ocWzgRU3zkFOUMEl/8FMinKnNbrSrmaQ/cXrtyH5enIm4wlRSUdMlf8NrwUsZlWyttIrlZ9uFxANc4f398Tq2AOSiOyEPrZZ2IPWLlxSZA+s15zf9xLTaeo0Nkg0EDng61fxMuMKBSGz88I7a21UWRfDTGfq91t1Icsj4Bv3lbUKhGIPzIlQJMhynQRQ8GTSNFfQckrfO7lff+KCwuDt6KNQ9aS/PB3Is/lXDvlYOUZnIzoe0lGKRyDFwCaiAJpis/pPB/bcheZ0gXYSdYxUE6HdbLFIFY8Fj8ZzHpbkKWGEP54ArTlJcT//b2KlGmLQQ5rJ5eDrEBMXdn2+RnwnLCn++lqmdonOWIT2cEBZY3VTEPcY19RD4R/4DkWEjGHbDhWFBFCY1gVGUayn1rmWW9mcdEDBy1jtrn7DTMk91xlafn+bNEzgQRboDnglD5iYkWaJ1qKbCM5s2EnbW+5s+YRwMDutXpvHiELWraB7NBBaoipnjSEYMEqXidg/BN71xDGt6eX/InoiLiXhiEUSssofHCgYu/y+Kacjaw== lunchbox"
       groups: [ sudo ]
