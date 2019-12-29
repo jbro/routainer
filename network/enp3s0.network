@@ -1,0 +1,8 @@
+[Match]
+Name=enp3s0
+
+[Network]
+Description=MGMT
+Address=192.168.0.3/24
+Gateway=192.168.0.1
+DNS=91.239.100.100

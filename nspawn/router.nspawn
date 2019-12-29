@@ -1,0 +1,7 @@
+[Exec]
+Hostname=router
+LinkJournal=host
+
+[Network]
+Interface=enp1s0 enp2s0.200
+Bridge=br-c2c

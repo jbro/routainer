@@ -1,0 +1,4 @@
+[NetDev]
+Description=Container to conainer bridge
+Kind=bridge
+Name=br-c2c

@@ -1,0 +1,6 @@
+[Match]
+Name=enp2s0
+
+[Network]
+Description=VLAN Access
+VLAN=enp2s0.200
