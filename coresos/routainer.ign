@@ -59,7 +59,8 @@ systemd:
       enable: true
       contents: |
         [Unit]
-        Before=local-fs.target
+        Before=network-pre.target
+        Wants=network-pre.target
         [Mount]
         What=/dev/sdb
         Where=/data
@@ -70,7 +71,8 @@ systemd:
       enable: true
       contents: |
         [Unit]
-        Before=local-fs.target
+        Before=network-pre.target
+        Wants=network-pre.target
         [Mount]
         What=/data/routainer/overlay/network
         Where=/etc/systemd/network
@@ -82,7 +84,8 @@ systemd:
       enable: true
       contents: |
         [Unit]
-        Before=local-fs.target
+        Before=network-pre.target
+        Wants=network-pre.target
         [Mount]
         What=/data/routainer/overlay/nspawn
         Where=/etc/systemd/nspawn
