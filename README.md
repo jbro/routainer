@@ -16,3 +16,9 @@ The first ethernet port on the apu is used connected to the internet, the
 second is connected to a "trunk" port on my switch and used as a VLAN
 agregator. The third port is used for a management network and used to
 ssh into the apu.
+
+## Notes
+
+### Things to install in the **toolbox**
+
+    apt install bash-completion vim git tmux kitty-terminfo
