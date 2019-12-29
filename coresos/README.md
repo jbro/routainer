@@ -36,3 +36,6 @@ It is build from `routainer.ign` by doing:
 To install Container Linux to disc do:
 
     sudo coreos-install -d /dev/sda -i routainer.json
+
+If the routainer git repo is not checked out on sdb, then use the toolbox to do
+so now.
