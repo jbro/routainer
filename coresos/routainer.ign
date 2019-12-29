@@ -1,0 +1,84 @@
+passwd:
+  users:
+    - name: root
+      # L0tsofP0WNy
+      password_hash: "$6$BOUe8yTJGlJfNOOV$ISwOdEA4y8Fv5o.OrYyKaPyc6lsgTNdnHFBzdY9MZgkMBu.GxcoIYoNAG.t.yDx5G83hXhZJYVJ4tbRVQHAnt/"
+    - name: core
+      ssh_authorized_keys:
+        - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDWb378qIEp40+sK6DFK22bKPf68Mo6kKpt0Y+suJBjnxcJKU+mknSlGjcps0Modlz6O5l9pcm8HTVZJhrwvQm/beY86/BG7W3rlS/AKWCf4gX/Ckr/Drw8l/awCu1J2W8qs9h+ocWzgRU3zkFOUMEl/8FMinKnNbrSrmaQ/cXrtyH5enIm4wlRSUdMlf8NrwUsZlWyttIrlZ9uFxANc4f398Tq2AOSiOyEPrZZ2IPWLlxSZA+s15zf9xLTaeo0Nkg0EDng61fxMuMKBSGz88I7a21UWRfDTGfq91t1Icsj4Bv3lbUKhGIPzIlQJMhynQRQ8GTSNFfQckrfO7lff+KCwuDt6KNQ9aS/PB3Is/lXDvlYOUZnIzoe0lGKRyDFwCaiAJpis/pPB/bcheZ0gXYSdYxUE6HdbLFIFY8Fj8ZzHpbkKWGEP54ArTlJcT//b2KlGmLQQ5rJ5eDrEBMXdn2+RnwnLCn++lqmdonOWIT2cEBZY3VTEPcY19RD4R/4DkWEjGHbDhWFBFCY1gVGUayn1rmWW9mcdEDBy1jtrn7DTMk91xlafn+bNEzgQRboDnglD5iYkWaJ1qKbCM5s2EnbW+5s+YRwMDutXpvHiELWraB7NBBaoipnjSEYMEqXidg/BN71xDGt6eX/InoiLiXhiEUSssofHCgYu/y+Kacjaw== lunchbox"
+    - name: jbr
+      shell: /usr/bin/toolbox
+      ssh_authorized_keys:
+        - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDWb378qIEp40+sK6DFK22bKPf68Mo6kKpt0Y+suJBjnxcJKU+mknSlGjcps0Modlz6O5l9pcm8HTVZJhrwvQm/beY86/BG7W3rlS/AKWCf4gX/Ckr/Drw8l/awCu1J2W8qs9h+ocWzgRU3zkFOUMEl/8FMinKnNbrSrmaQ/cXrtyH5enIm4wlRSUdMlf8NrwUsZlWyttIrlZ9uFxANc4f398Tq2AOSiOyEPrZZ2IPWLlxSZA+s15zf9xLTaeo0Nkg0EDng61fxMuMKBSGz88I7a21UWRfDTGfq91t1Icsj4Bv3lbUKhGIPzIlQJMhynQRQ8GTSNFfQckrfO7lff+KCwuDt6KNQ9aS/PB3Is/lXDvlYOUZnIzoe0lGKRyDFwCaiAJpis/pPB/bcheZ0gXYSdYxUE6HdbLFIFY8Fj8ZzHpbkKWGEP54ArTlJcT//b2KlGmLQQ5rJ5eDrEBMXdn2+RnwnLCn++lqmdonOWIT2cEBZY3VTEPcY19RD4R/4DkWEjGHbDhWFBFCY1gVGUayn1rmWW9mcdEDBy1jtrn7DTMk91xlafn+bNEzgQRboDnglD5iYkWaJ1qKbCM5s2EnbW+5s+YRwMDutXpvHiELWraB7NBBaoipnjSEYMEqXidg/BN71xDGt6eX/InoiLiXhiEUSssofHCgYu/y+Kacjaw== lunchbox"
+      groups: [ sudo ]
+storage:
+  filesystems:
+    - name: data
+      mount:
+        device: /dev/sdb
+        format: xfs
+        wipe_filesystem: false
+        label: DATA
+  files:
+    - path: /etc/default/toolbox
+      filesystem: root
+      mode: 0644
+      contents:
+        inline: |
+          TOOLBOX_DOCKER_IMAGE=debian
+    - path: /etc/hostname
+      filesystem: root
+      mode: 0644
+      contents:
+        inline: |
+          gw
+    - path: /etc/systemd/timesyncd.conf
+      filesystem: root
+      mode: 0644
+      contents:
+        inline: |
+          [Time]
+          NTP=0.dk.pool.ntp.org 1.dk.pool.ntp.org 2.dk.pool.ntp.org 3.dk.pool.ntp.org
+    - path: /etc/ssh/sshd_config
+      filesystem: root
+      mode: 0600
+      contents:
+        inline: |
+          # Use most defaults for sshd configuration.
+          Subsystem sftp internal-sftp
+          ClientAliveInterval 180
+          UseDNS no
+          UsePAM yes
+          PrintLastLog no # handled by PAM
+          PrintMotd no # handled by PAM
+          PermitRootLogin no
+          AuthenticationMethods publickey
+systemd:
+  units:
+    - name: media-data.mount
+      enable: true
+      contents: |
+        [Unit]
+        Before=local-fs.target
+        [Mount]
+        What=/dev/sdb
+        Where=/media/data
+        Type=xfs
+        [Install]
+        WantedBy=local-fs.target
+locksmith:
+  reboot_strategy: reboot
+  window_start: Thu 04:00
+  window_length: 1h
+networkd:
+  units:
+    - name: enp3s0.network
+      contents: |
+        [Match]
+        Name=enp3s0
+
+        [Network]
+        Description=MGMT
+        Address=192.168.0.3/24
+        Gateway=192.168.0.1
+        DNS=91.239.100.100
