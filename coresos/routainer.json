@@ -99,12 +99,12 @@
         "name": "data.mount"
       },
       {
-        "contents": "[Unit]\nBefore=local-fs.target\n[Mount]\nWhat=/data/routainer/overlay/network\nWhere=/etc/systemd/network\nType=bind\n[Install]\nWantedBy=local-fs.target\n",
+        "contents": "[Unit]\nBefore=local-fs.target\n[Mount]\nWhat=/data/routainer/overlay/network\nWhere=/etc/systemd/network\nType=none\nOptions=bind\n[Install]\nWantedBy=local-fs.target\n",
         "enable": true,
         "name": "etc-systemd-network.mount"
       },
       {
-        "contents": "[Unit]\nBefore=local-fs.target\n[Mount]\nWhat=/data/routainer/overlay/nspawn\nWhere=/etc/systemd/nspawn\nType=bind\n[Install]\nWantedBy=local-fs.target\n",
+        "contents": "[Unit]\nBefore=local-fs.target\n[Mount]\nWhat=/data/routainer/overlay/nspawn\nWhere=/etc/systemd/nspawn\nType=none\nOptions=bind\n[Install]\nWantedBy=local-fs.target\n",
         "enable": true,
         "name": "etc-systemd-nspawn.mount"
       }

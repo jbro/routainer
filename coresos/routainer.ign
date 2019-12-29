@@ -74,7 +74,8 @@ systemd:
         [Mount]
         What=/data/routainer/overlay/network
         Where=/etc/systemd/network
-        Type=bind
+        Type=none
+        Options=bind
         [Install]
         WantedBy=local-fs.target
     - name: etc-systemd-nspawn.mount
@@ -85,7 +86,8 @@ systemd:
         [Mount]
         What=/data/routainer/overlay/nspawn
         Where=/etc/systemd/nspawn
-        Type=bind
+        Type=none
+        Options=bind
         [Install]
         WantedBy=local-fs.target
 locksmith:
