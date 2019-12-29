@@ -66,6 +66,28 @@ systemd:
         Type=xfs
         [Install]
         WantedBy=local-fs.target
+    - name: etc-systemd-network.mount
+      enable: true
+      contents: |
+        [Unit]
+        Before=local-fs.target
+        [Mount]
+        What=/data/routainer/overlay/network
+        Where=/etc/systemd/network
+        Type=bind
+        [Install]
+        WantedBy=local-fs.target
+    - name: etc-systemd-nspawn.mount
+      enable: true
+      contents: |
+        [Unit]
+        Before=local-fs.target
+        [Mount]
+        What=/data/routainer/overlay/nspawn
+        Where=/etc/systemd/nspawn
+        Type=bind
+        [Install]
+        WantedBy=local-fs.target
 locksmith:
   reboot_strategy: reboot
   window_start: Thu 04:00

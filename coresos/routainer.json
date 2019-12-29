@@ -7,14 +7,7 @@
     "timeouts": {},
     "version": "2.2.0"
   },
-  "networkd": {
-    "units": [
-      {
-        "contents": "[Match]\nName=enp3s0\n\n[Network]\nDescription=MGMT\nAddress=192.168.0.3/24\nGateway=192.168.0.1\nDNS=91.239.100.100\n",
-        "name": "enp3s0.network"
-      }
-    ]
-  },
+  "networkd": {},
   "passwd": {
     "users": [
       {
@@ -101,9 +94,19 @@
   "systemd": {
     "units": [
       {
-        "contents": "[Unit]\nBefore=local-fs.target\n[Mount]\nWhat=/dev/sdb\nWhere=/media/data\nType=xfs\n[Install]\nWantedBy=local-fs.target\n",
+        "contents": "[Unit]\nBefore=local-fs.target\n[Mount]\nWhat=/dev/sdb\nWhere=/data\nType=xfs\n[Install]\nWantedBy=local-fs.target\n",
         "enable": true,
-        "name": "media-data.mount"
+        "name": "data.mount"
+      },
+      {
+        "contents": "[Unit]\nBefore=local-fs.target\n[Mount]\nWhat=/data/routainer/overlay/network\nWhere=/etc/systemd/network\nType=bind\n[Install]\nWantedBy=local-fs.target\n",
+        "enable": true,
+        "name": "etc-systemd-network.mount"
+      },
+      {
+        "contents": "[Unit]\nBefore=local-fs.target\n[Mount]\nWhat=/data/routainer/overlay/nspawn\nWhere=/etc/systemd/nspawn\nType=bind\n[Install]\nWantedBy=local-fs.target\n",
+        "enable": true,
+        "name": "etc-systemd-nspawn.mount"
       }
     ]
   }
