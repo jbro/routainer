@@ -31,7 +31,7 @@ When the Container Linux image is booted, you need to use wget to get the
 
 It is build from `routainer.ign` by doing:
 
-   ct -in-file routainer.ign -strict -pretty > routainer.json
+    ct -in-file routainer.ign -pretty > routainer.json
 
 To install Container Linux to disc do:
 
