@@ -21,4 +21,4 @@ ssh into the apu.
 
 ### Things to install in the **toolbox**
 
-    apt install bash-completion vim git tmux kitty-terminfo
+    apt install bash-completion vim git tmux kitty-terminfo debootstrap
