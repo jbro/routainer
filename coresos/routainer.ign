@@ -13,6 +13,12 @@ passwd:
       groups: [ sudo ]
 storage:
   filesystems:
+    - name: root
+      mount:
+        device: /dev/disk/by-label/ROOT
+        format: xfs
+        wipe_filesystem: true
+        label: ROOT
     - name: data
       mount:
         device: /dev/sdb

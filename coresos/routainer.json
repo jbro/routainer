@@ -83,6 +83,15 @@
     "filesystems": [
       {
         "mount": {
+          "device": "/dev/disk/by-label/ROOT",
+          "format": "xfs",
+          "label": "ROOT",
+          "wipeFilesystem": true
+        },
+        "name": "root"
+      },
+      {
+        "mount": {
           "device": "/dev/sdb",
           "format": "xfs",
           "label": "DATA"
