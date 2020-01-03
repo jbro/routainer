@@ -1,4 +1,0 @@
-[NetDev]
-Description=Container linknet
-Kind=bridge
-Name=br-linknet

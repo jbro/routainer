@@ -1,0 +1,5 @@
+[Match]
+Name=linknet
+
+[Network]
+ConfigureWithoutCarrier=yes

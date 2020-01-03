@@ -1,0 +1,4 @@
+[NetDev]
+Description=Container link net
+Kind=bridge
+Name=linknet

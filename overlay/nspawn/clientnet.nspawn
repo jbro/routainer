@@ -9,4 +9,4 @@ BindReadOnly=/data/routainer/containers/clientnet/network:/etc/systemd/network
 
 [Network]
 Interface=enp2s0.200
-Bridge=br-linknet
+Bridge=linknet
