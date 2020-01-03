@@ -1,4 +1,4 @@
 [NetDev]
-Description=Container to conainer bridge
+Description=Container linknet
 Kind=bridge
-Name=br-c2c
+Name=br-linknet
