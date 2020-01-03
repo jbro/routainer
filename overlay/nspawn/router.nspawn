@@ -1,6 +1,10 @@
 [Exec]
+Ephemeral=true
 Hostname=router
-LinkJournal=host
+LinkJournal=auto
+
+[Files]
+BindReadOnly=/data/routainer/containers/router:/opt/routainer
 
 [Network]
 Interface=enp1s0 enp2s0.200

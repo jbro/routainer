@@ -1,0 +1,11 @@
+[Unit]
+Description=Execute bind mounted install script on boot
+Requires=local-fs.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=true
+ExecStart=/opt/routainer/install.sh
+
+[Install]
+WantedBy=multi-user.target
