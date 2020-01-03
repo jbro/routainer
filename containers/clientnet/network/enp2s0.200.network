@@ -1,0 +1,6 @@
+[Match]
+Name=enp2s0.200
+
+[Network]
+Description=Client network
+Address=192.168.200.1/24

@@ -1,0 +1,12 @@
+[Exec]
+Ephemeral=true
+Hostname=clientnet
+LinkJournal=auto
+
+[Files]
+BindReadOnly=/data/routainer/containers/clientnet:/opt/routainer
+BindReadOnly=/data/routainer/containers/clientnet/network:/etc/systemd/network
+
+[Network]
+Interface=enp2s0.200
+Bridge=br-c2c
