@@ -1,4 +1,6 @@
 #!/bin/sh
+hostname clientnet
+
 apt-get update
 apt-get upgrade -y
 
