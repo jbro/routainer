@@ -5,7 +5,8 @@ LinkJournal=auto
 
 [Files]
 BindReadOnly=/data/routainer/containers/router:/opt/routainer
+BindReadOnly=/data/routainer/containers/router/network:/etc/systemd/network
 
 [Network]
-Interface=enp1s0 enp2s0.200
+Interface=enp1s0
 Bridge=br-c2c
