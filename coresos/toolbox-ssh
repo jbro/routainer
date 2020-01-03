@@ -1,2 +1,5 @@
 #!/bin/sh
-/usr/bin/toolbox -E SSH_AUTH_SOCK=/media/root$SSH_AUTH_SOCK
+/usr/bin/toolbox \
+	--bind=/data:/data \
+	--bind=/var/lib/machines:/var/lib/machines \
+	-E SSH_AUTH_SOCK=/media/root$SSH_AUTH_SOCK
