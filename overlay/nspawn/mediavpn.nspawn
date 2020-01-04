@@ -1,0 +1,13 @@
+[Exec]
+Ephemeral=true
+Hostname=mediavpn
+LinkJournal=auto
+
+[Files]
+BindReadOnly=/data/routainer/containers/mediavpn:/opt/routainer
+BindReadOnly=/data/routainer/containers/mediavpn/network:/etc/systemd/network
+BindReadOnly=/data/vpn-configs:/opt/vpn-configs
+
+[Network]
+Interface=enp2s0.201
+Bridge=linknet
