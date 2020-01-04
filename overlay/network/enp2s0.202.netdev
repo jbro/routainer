@@ -1,0 +1,6 @@
+[NetDev]
+Name=enp2s0.202
+Kind=vlan
+
+[VLAN]
+Id=202

@@ -1,0 +1,12 @@
+[Exec]
+Ephemeral=true
+Hostname=guestnet
+LinkJournal=auto
+
+[Files]
+BindReadOnly=/data/routainer/containers/guestnet:/opt/routainer
+BindReadOnly=/data/routainer/containers/guestnet/network:/etc/systemd/network
+
+[Network]
+Interface=enp2s0.202
+Bridge=linknet
