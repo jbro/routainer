@@ -4,6 +4,8 @@ hostname clientnet
 apt-get update
 apt-get upgrade -y
 
+echo 1 > /proc/sys/net/ipv4/ip_forward
+
 apt-get install -y curl
 mkdir /etc/pihole
 #Gw10z7G8
