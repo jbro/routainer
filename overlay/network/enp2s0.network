@@ -4,3 +4,4 @@ Name=enp2s0
 [Network]
 Description=VLAN Access
 VLAN=enp2s0.200
+VLAN=enp2s0.201
