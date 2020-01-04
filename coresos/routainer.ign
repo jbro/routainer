@@ -59,6 +59,12 @@ storage:
           PrintMotd no # handled by PAM
           PermitRootLogin no
           AuthenticationMethods publickey
+    - path: /etc/sysctl.d/ip_forward.conf
+      filesystem: root
+      mode: 0644
+      contents:
+        inline: |
+          net.ipv4.ip_forward=0
 systemd:
   units:
     - name: data.mount

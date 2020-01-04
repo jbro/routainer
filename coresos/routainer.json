@@ -72,6 +72,15 @@
       },
       {
         "filesystem": "root",
+        "path": "/etc/sysctl.d/ip_forward.conf",
+        "contents": {
+          "source": "data:,net.ipv4.ip_forward%3D0%0A",
+          "verification": {}
+        },
+        "mode": 420
+      },
+      {
+        "filesystem": "root",
         "path": "/etc/coreos/update.conf",
         "contents": {
           "source": "data:,%0AREBOOT_STRATEGY%3D%22reboot%22%0ALOCKSMITHD_REBOOT_WINDOW_START%3D%22Thu%2004%3A00%22%0ALOCKSMITHD_REBOOT_WINDOW_LENGTH%3D%221h%22",
