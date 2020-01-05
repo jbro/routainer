@@ -2,7 +2,10 @@
 Name=enp2s0
 
 [Network]
-Description=VLAN Access
+Description=VLAN Access + Management
+Address=192.168.0.3/24
+Gateway=192.168.0.1
+DNS=91.239.100.100
 VLAN=enp2s0.200
 VLAN=enp2s0.201
 VLAN=enp2s0.202
