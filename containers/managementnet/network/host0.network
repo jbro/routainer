@@ -5,4 +5,5 @@ Name=host0
 Description=Linknet
 Address=192.168.100.10
 Gateway=192.168.100.1
-DNS=192.168.100.1
+DNS=89.233.43.71
+DNS=91.239.100.100
