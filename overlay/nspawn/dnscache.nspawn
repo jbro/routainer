@@ -1,0 +1,11 @@
+[Exec]
+Ephemeral=true
+Hostname=clientnet
+LinkJournal=auto
+
+[Files]
+BindReadOnly=/data/routainer/containers/dnscache:/opt/routainer
+BindReadOnly=/data/routainer/containers/dnscache/network:/etc/systemd/network
+
+[Network]
+Bridge=linknet
