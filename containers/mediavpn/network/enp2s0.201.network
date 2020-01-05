@@ -3,4 +3,10 @@ Name=enp2s0.201
 
 [Network]
 Description=Client network
+DHCPServer=yes
 Address=192.168.201.1/24
+
+[DHCPServer]
+PoolOffset=100
+DNS=8.8.8.8
+DNS=8.8.4.4
