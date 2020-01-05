@@ -3,4 +3,9 @@ Name=enp3s0
 
 [Network]
 Description=Management network
+DHCPServer=yes
 Address=192.168.0.1
+
+[DHCPServer]
+PoolOffset=100
+DNS=192.168.100.50
