@@ -1,0 +1,13 @@
+[Exec]
+Ephemeral=true
+Hostname=pihole
+LinkJournal=auto
+PrivateUsers=0
+
+[Files]
+BindReadOnly=/data/routainer/containers/pihole:/opt/routainer
+BindReadOnly=/data/routainer/containers/pihole/network:/etc/systemd/network
+Bind=/data/pihole/etc/pihole:/etc/pihole
+
+[Network]
+Bridge=linknet
