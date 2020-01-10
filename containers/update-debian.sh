@@ -1,5 +1,5 @@
 #!/bin/sh
-INCLUDE="systemd-container,kitty-terminfo,vim,bash-completion"
+INCLUDE="systemd-container,kitty-terminfo,vim,bash-completion,dnsutils"
 DATE=$(date +%Y%m%d%H%M%S)
 IMAGEPATH="/media/root/var/lib/machines/debian-$DATE"
 
