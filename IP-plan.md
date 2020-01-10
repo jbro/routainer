@@ -30,7 +30,7 @@ Prefix: **192.168.100.0/24**
 | - | - | - |
 | c: router | 192.168.100.1 | Containers other interface is connected to the internet |
 | c: managementnet | 192.168.100.10 | Containers other interface is untagged |
-| c: dnscache | 192.168.100.50 | |
+| c: unbound | 192.168.100.50 | |
 | c: pihole | 192.168.100.51 | |
 | RESERVED | 192.168.100.52-100 | Containers with no other interfaces |
 | c: clientnet | 192.168.100.200 | Containers other interface has VLAN 200 |
