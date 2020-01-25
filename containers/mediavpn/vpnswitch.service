@@ -1,0 +1,4 @@
+[Service]
+Environment="BIND_ADDRESS=:80" "VPN_CONF=/etc/openvpn/client/vpnconfig.json" "WEB_DIR=/opt/go/src/github.com/jbro/vpnswitch/web/" 
+ExecStart=/opt/go/bin/vpnswitch
+Restart=always
