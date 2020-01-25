@@ -13,6 +13,9 @@ apt-get install -y openvpn openvpn-systemd-resolved git golang
 
 export GOPATH=/opt/go
 go get -v github.com/jbro/vpnswitch
+cp /opt/routainer/vpnswitch.service /etc/systemd/system/
+systemctl daemon-reload
+systemctl start vpnswitch.service
 
 rmdir /etc/openvpn/client
 ln -sf /opt/vpn-configs /etc/openvpn/client
