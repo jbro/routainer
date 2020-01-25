@@ -9,7 +9,10 @@ done
 apt-get update
 apt-get upgrade -y
 
-apt-get install -y openvpn openvpn-systemd-resolved
+apt-get install -y openvpn openvpn-systemd-resolved git golang
+
+export GOPATH=/opt/go
+go get -v github.com/jbro/vpnswitch
 
 rmdir /etc/openvpn/client
 ln -sf /opt/vpn-configs /etc/openvpn/client
