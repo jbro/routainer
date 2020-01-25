@@ -20,6 +20,11 @@ ln -sf /opt/vpn-configs /etc/openvpn/client
 mkdir /etc/systemd/system/openvpn-client@.service.d
 cp /opt/routainer/override.conf /etc/systemd/system/openvpn-client@.service.d/
 
-systemctl start openvpn-client@my_expressvpn_usa_-_new_york_udp
+iptables -A FORWARD -s 192.168.201.1 -j ACCEPT
+iptables -A FORWARD -o tun0 -j ACCEPT
+iptables -A FORWARD -i tun0 -j ACCEPT
+iptables -A FORWARD -j DROP
+echo 1 > /proc/sys/net/ipv4/ip_forward
 
+systemctl start openvpn-client@my_expressvpn_usa_-_new_york_udp
 iptables -t nat -A POSTROUTING -o tun0 -j MASQUERADE
