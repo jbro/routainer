@@ -3,6 +3,7 @@ Ephemeral=true
 Hostname=pihole
 LinkJournal=auto
 PrivateUsers=0
+NotifyReady=yes
 
 [Files]
 BindReadOnly=/data/routainer/containers/pihole:/opt/routainer

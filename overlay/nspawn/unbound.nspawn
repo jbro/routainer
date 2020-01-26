@@ -2,6 +2,7 @@
 Ephemeral=true
 Hostname=unbound
 LinkJournal=auto
+NotifyReady=yes
 
 [Files]
 BindReadOnly=/data/routainer/containers/unbound:/opt/routainer

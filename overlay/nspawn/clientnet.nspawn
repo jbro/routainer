@@ -2,6 +2,7 @@
 Ephemeral=true
 Hostname=clientnet
 LinkJournal=auto
+NotifyReady=yes
 
 [Files]
 BindReadOnly=/data/routainer/containers/clientnet:/opt/routainer

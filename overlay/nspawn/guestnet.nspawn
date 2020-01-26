@@ -2,6 +2,7 @@
 Ephemeral=true
 Hostname=guestnet
 LinkJournal=auto
+NotifyReady=yes
 
 [Files]
 BindReadOnly=/data/routainer/containers/guestnet:/opt/routainer

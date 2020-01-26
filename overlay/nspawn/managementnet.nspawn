@@ -2,6 +2,7 @@
 Ephemeral=true
 Hostname=managementnet
 LinkJournal=auto
+NotifyReady=yes
 
 [Files]
 BindReadOnly=/data/routainer/containers/managementnet:/opt/routainer

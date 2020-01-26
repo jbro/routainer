@@ -2,6 +2,7 @@
 Ephemeral=true
 Hostname=router
 LinkJournal=auto
+NotifyReady=yes
 
 [Files]
 BindReadOnly=/data/routainer/containers/router:/opt/routainer
