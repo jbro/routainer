@@ -1,13 +1,12 @@
 #!/bin/sh
 INCLUDE="systemd-container,kitty-terminfo,vim,bash-completion,dnsutils"
 DATE=$(date +%Y%m%d%H%M%S)
-IMAGEPATH="/media/root/var/lib/machines/debian-$DATE"
+RELEASE=stable
+IMAGEPATH="/media/root/var/lib/machines/debian-$RELEASE-$DATE"
 
-debootstrap --include="$INCLUDE" stable "$IMAGEPATH"
+debootstrap --variant=minbase --include="$INCLUDE" $RELEASE "$IMAGEPATH"
 
 cp "/media/root/data/routainer/containers/routainer-install.service" "$IMAGEPATH/usr/lib/systemd/system/"
 chroot "$IMAGEPATH" systemctl enable routainer-install.service
 
-chroot "$IMAGEPATH" systemctl disable ifupdown-pre.service
-chroot "$IMAGEPATH" systemctl disable networking.service
 chroot "$IMAGEPATH" systemctl enable systemd-networkd.service
