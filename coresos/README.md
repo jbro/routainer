@@ -1,3 +1,10 @@
+# NOTE! Container Linux is no longer supported
+
+I've migrated to Flatcar using:
+https://docs.flatcar-linux.org/os/update-from-container-linux/
+
+So the following needs to be adapted for Flatcar when reinstalling.
+
 # Installing Container Linux to an apu2c4
 
 ## Prerequisite
