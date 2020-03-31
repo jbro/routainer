@@ -109,5 +109,5 @@ systemd:
         WantedBy=local-fs.target
 locksmith:
   reboot_strategy: reboot
-  window_start: Thu 04:00
-  window_length: 1h
+  window_start: 04:00
+  window_length: 0
