@@ -7,7 +7,6 @@ NotifyReady=yes
 [Files]
 BindReadOnly=/data/routainer/containers/unbound:/opt/routainer
 BindReadOnly=/data/routainer/containers/unbound/network:/etc/systemd/network
-BindReadOnly=/data/unbound:/opt/unbound
 
 [Network]
 Bridge=linknet

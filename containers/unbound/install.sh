@@ -11,7 +11,7 @@ apt-get upgrade -y
 apt-get install -y curl unbound
 systemctl stop unbound
 rm -fr /etc/unbound/unbound.conf.d/
-ln -s /opt/unbound/unbound.conf.d/ /etc/unbound/
+ln -s /opt/routainer/unbound.conf.d/ /etc/unbound/
 cp /opt/routainer/roothints.* /usr/lib/systemd/system/
 systemctl daemon-reload
 systemctl enable roothints.timer
