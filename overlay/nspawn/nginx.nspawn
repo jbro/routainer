@@ -1,0 +1,14 @@
+[Exec]
+Ephemeral=true
+Hostname=nginx
+LinkJournal=auto
+PrivateUsers=0
+NotifyReady=yes
+
+[Files]
+BindReadOnly=/data/routainer/containers/nginx:/opt/routainer
+BindReadOnly=/data/routainer/containers/nginx/network:/etc/systemd/network
+Bind=/data/nginx:/opt/nginx
+
+[Network]
+Bridge=linknet

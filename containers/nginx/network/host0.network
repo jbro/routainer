@@ -1,0 +1,7 @@
+[Match]
+Name=host0
+
+[Network]
+Description=Linknet
+Address=192.168.100.52
+Gateway=192.168.100.1

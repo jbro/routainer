@@ -32,7 +32,8 @@ Prefix: **192.168.100.0/24**
 | c: managementnet | 192.168.100.10 | Containers other interface is untagged |
 | c: unbound | 192.168.100.50 | |
 | c: pihole | 192.168.100.51 | |
-| RESERVED | 192.168.100.52-100 | Containers with no other interfaces |
+| c: nginx | 192.168.100.52 | |
+| RESERVED | 192.168.100.53-100 | Containers with no other interfaces |
 | c: clientnet | 192.168.100.200 | Containers other interface has VLAN 200 |
 | c: mediavpn | 192.168.100.201 | Containers other interface has VLAN 201 |
 | c: guestnet | 192.168.100.202 | Containers other interface has VLAN 202 |
