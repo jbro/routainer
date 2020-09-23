@@ -22,3 +22,32 @@ ssh into the apu.
 ### Things to install in the **toolbox**
 
     apt install bash-completion vim git tmux kitty-terminfo debootstrap
+
+### Enable containers
+
+At the moment containers need to be enabled by hand:
+
+    for c in /etc/systemd/nspawn/*.nspawn; do basename $c .nspawn | xargs -n1 sudo machinectl enable; done
+
+Also if `machines.target` is not enabled:
+
+    systemctl list-units --type=target
+
+Do so:
+
+    sudo systemctl enable machines.target
+
+Also if a container times out on start edit its override:
+
+    sudo systemctl edit systemd-nspawn@<countainer name>
+
+And add:
+
+    [Service]
+    TimeoutSec=600
+
+If a container needs to start after another container add:
+
+    [Unit]
+    After=systemd-nspawn@unbound.service
+
