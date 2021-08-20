@@ -1,12 +1,15 @@
 [Unit]
 Description=Execute bind mounted install script on boot
 Requires=local-fs.target
+Requires=networking.service
+After=network-online.target
+Wants=network-online.target
 
 [Service]
 Type=oneshot
 RemainAfterExit=true
 ExecStart=/opt/routainer/install.sh
-ExecStartPost=/usr/bin/systemd-notify --ready
+#ExecStartPost=/usr/bin/systemd-notify --ready
 
 [Install]
 WantedBy=multi-user.target
