@@ -26,6 +26,6 @@ ip route add 192.168.0.0/24 via 192.168.100.10    # MGMT net
 ip route add 192.168.200.0/24 via 192.168.100.200 # Client net
 ip route add 192.168.202.0/24 via 192.168.100.202 # Guest net
 
-iptables -A PREROUTING -t nat -d 85.191.217.214 -p tcp --dport 80 -j DNAT --to 192.168.100.52:80
-iptables -A PREROUTING -t nat -d 85.191.217.214 -p tcp --dport 443 -j DNAT --to 192.168.100.52:443
+iptables -A PREROUTING -t nat -d 185.233.253.110 -p tcp --dport 80 -j DNAT --to 192.168.100.52:80
+iptables -A PREROUTING -t nat -d 185.233.253.110 -p tcp --dport 443 -j DNAT --to 192.168.100.52:443
 
