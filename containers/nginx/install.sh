@@ -7,6 +7,7 @@ apt-get install unattended-upgrades apt-listchanges
 
 apt-get install -y python3-pip nginx
 
+pip3 install --upgrade pip
 pip3 install certbot
 pip3 install certbot-nginx
 pip3 install certbot-plugin-gandi
