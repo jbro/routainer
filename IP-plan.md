@@ -33,7 +33,6 @@ Prefix: **192.168.100.0/24**
 | c: unbound | 192.168.100.50 | |
 | c: pihole | 192.168.100.51 | |
 | c: nginx | 192.168.100.52 | |
-| c: mosquitto | 192.168.100.53 | MQTT broker |
 | RESERVED | 192.168.100.54-100 | Containers with no other interfaces |
 | c: clientnet | 192.168.100.200 | Containers other interface has VLAN 200 |
 | c: mediavpn | 192.168.100.201 | Containers other interface has VLAN 201 |

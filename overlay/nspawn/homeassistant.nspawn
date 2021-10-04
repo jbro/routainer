@@ -1,0 +1,17 @@
+[Exec]
+Ephemeral=true
+Hostname=homeassistant
+LinkJournal=auto
+PrivateUsers=0
+NotifyReady=yes
+
+[Files]
+BindReadOnly=/data/routainer/containers/homeassistant:/opt/routainer
+BindReadOnly=/data/routainer/containers/homeassistant/network:/etc/systemd/network
+BindReadOnly=/data/routainer/containers/homeassistant/services:/opt/services
+Bind=/data/homeassistant/mosquitto/:/opt/mosquitto/
+Bind=/data/homeassistant/config/:/srv/homeassistant/config
+
+[Network]
+Bridge=linknet
+Interface=mac0.200

@@ -3,3 +3,4 @@ Name=enp2s0.200
 
 [Network]
 Description=Client Network
+MACVLAN=mac0.200

@@ -1,0 +1,9 @@
+[Unit]
+Description=Home Assistant
+After=network-online.target
+[Service]
+ExecStart=/srv/homeassistant/bin/hass -c /srv/homeassistant/config
+
+[Install]
+WantedBy=multi-user.target
+
