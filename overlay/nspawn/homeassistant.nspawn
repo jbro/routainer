@@ -4,6 +4,7 @@ Hostname=homeassistant
 LinkJournal=auto
 PrivateUsers=0
 NotifyReady=yes
+ResolvConf=copy-host
 
 [Files]
 BindReadOnly=/data/routainer/containers/homeassistant:/opt/routainer

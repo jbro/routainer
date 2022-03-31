@@ -3,6 +3,7 @@ Ephemeral=true
 Hostname=mediavpn
 LinkJournal=auto
 NotifyReady=yes
+ResolvConf=copy-host
 
 [Files]
 BindReadOnly=/data/routainer/containers/mediavpn:/opt/routainer

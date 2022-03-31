@@ -4,6 +4,7 @@ Hostname=nginx
 LinkJournal=auto
 PrivateUsers=0
 NotifyReady=yes
+ResolvConf=copy-host
 
 [Files]
 BindReadOnly=/data/routainer/containers/nginx:/opt/routainer

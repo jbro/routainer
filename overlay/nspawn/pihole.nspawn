@@ -5,6 +5,7 @@ LinkJournal=auto
 PrivateUsers=0
 NotifyReady=yes
 Capability=CAP_IPC_LOCK
+ResolvConf=copy-host
 
 [Files]
 BindReadOnly=/data/routainer/containers/pihole:/opt/routainer
