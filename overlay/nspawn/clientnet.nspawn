@@ -2,6 +2,7 @@
 Ephemeral=true
 Hostname=clientnet
 LinkJournal=auto
+PrivateUsers=0
 NotifyReady=yes
 ResolvConf=copy-host
 

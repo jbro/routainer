@@ -2,6 +2,7 @@
 Ephemeral=true
 Hostname=router
 LinkJournal=auto
+PrivateUsers=0
 NotifyReady=yes
 
 [Files]
