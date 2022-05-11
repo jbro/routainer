@@ -1,6 +1,7 @@
 #!/bin/sh
 /usr/bin/toolbox \
 	--bind=/data:/data \
+	--bind=/etc/systemd/system:/data/host/systemd
 	--bind=/var/lib/machines:/var/lib/machines \
 	--bind=/dev/sda:/dev/sda \
 	-E SSH_AUTH_SOCK=/media/root$SSH_AUTH_SOCK
