@@ -12,13 +12,6 @@ passwd:
         - "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFWx2DiRk4jLKCLi6eBmAkrEfI2D9+P8Bs4izX6XzJDB"
       groups: [ sudo ]
 storage:
-  filesystems:
-    - name: root
-      mount:
-        device: /dev/disk/by-label/ROOT
-        format: xfs
-        wipe_filesystem: true
-        label: ROOT
   files:
     - path: /etc/default/toolbox
       filesystem: root
