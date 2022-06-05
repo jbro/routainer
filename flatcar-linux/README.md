@@ -1,11 +1,4 @@
-# NOTE! Container Linux is no longer supported
-
-I've migrated to Flatcar using:
-https://docs.flatcar-linux.org/os/update-from-container-linux/
-
-So the following needs to be adapted for Flatcar when reinstalling.
-
-# Installing Container Linux to an apu2c4
+# Installing to an apu2c4
 
 ## Prerequisite
 
@@ -17,32 +10,17 @@ DHCP.
 Boot the apu using iPXE to the console and execute
 
     dhcp
-    kernel http://stable.release.core-os.net/amd64-usr/current/coreos_production_pxe.vmlinuz initrd=coreos_production_pxe_image.cpio.gz console=ttyS0,115200 coreos.autologin=ttyS0
-    initrd http://stable.release.core-os.net/amd64-usr/current/coreos_production_pxe_image.cpio.gz
-    boot
+    chain https://raw.githubusercontent.com/jbro/routainer/master/flatcar-linux/install.ipxe
 
-The long commands can be entered with `xdotool`
+If your ipxe doesn't support ssl, then copy paste the contents for the
+ipxe script into the ipxe console using the hint below.
 
-    export windowid=<windowid>
-    sleep 2; xdotool type --clearmodifiers --delay 50 --window $windowid 'kernel http://stable.release.core-os.net/amd64-usr/current/coreos_production_pxe.vmlinuz initrd=coreos_production_pxe_image.cpio.gz console=ttyS0,115200 coreos.autologin=ttyS0'
-    sleep 2; xdotool type --delay 50 --window $windowid 'initrd http://stable.release.core-os.net/amd64-usr/current/coreos_production_pxe_image.cpio.gz'
+*hint* if you want to copy paste the above try something like:
 
-The `windowid` the terminal which is connected via the apu's serial line can be
-found using `xwinfo`, and that window must be kept in focus while `xdotool` is
-doing its job.
+     sleep 2; sudo ydotool type "$(wl-paste)"
 
-When the Container Linux image is booted, you need to use wget to get the
-`routainer.json` file from this folder, on to the image.
-
-    wget https://raw.githubusercontent.com/jbro/routainer/master/coresos/routainer.json
-
-It is build from `routainer.ign` by doing:
-
-    ct -in-file routainer.ign -pretty > routainer.json
-
-To install Container Linux to disc do:
-
-    sudo coreos-install -d /dev/sda -i routainer.json
+to use ydotool to type the contents of the clipboard into the current
+window.
 
 If the routainer git repo is not checked out on sdb, then use the toolbox to do
 so now.
