@@ -21,12 +21,6 @@ storage:
         format: xfs
         wipe_filesystem: true
         label: ROOT
-    - name: data
-      mount:
-        device: /dev/sdb
-        format: xfs
-        wipe_filesystem: false
-        label: DATA
   files:
     - path: /etc/default/toolbox
       filesystem: root
@@ -69,18 +63,6 @@ storage:
           net.ipv4.ip_forward=0
 systemd:
   units:
-    - name: data.mount
-      enable: true
-      contents: |
-        [Unit]
-        Before=network-pre.target
-        Wants=network-pre.target
-        [Mount]
-        What=/dev/sdb
-        Where=/data
-        Type=xfs
-        [Install]
-        WantedBy=local-fs.target
     - name: etc-systemd-network.mount
       enable: true
       contents: |
