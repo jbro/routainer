@@ -1,0 +1,82 @@
+---
+variant: flatcar
+version: 1.0.0
+passwd:
+  users:
+    - name: root
+      # L0tsofP0WNy
+      password_hash: "$6$BOUe8yTJGlJfNOOV$ISwOdEA4y8Fv5o.OrYyKaPyc6lsgTNdnHFBzdY9MZgkMBu.GxcoIYoNAG.t.yDx5G83hXhZJYVJ4tbRVQHAnt/"
+    - name: core
+      ssh_authorized_keys:
+        - "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFWx2DiRk4jLKCLi6eBmAkrEfI2D9+P8Bs4izX6XzJDB"
+    - name: jbr
+      shell: /data/routainer/coresos/toolbox-ssh
+      ssh_authorized_keys:
+        - "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFWx2DiRk4jLKCLi6eBmAkrEfI2D9+P8Bs4izX6XzJDB"
+      groups: [ sudo ]
+storage:
+  files:
+    - path: /etc/default/toolbox
+      mode: 0644
+      contents:
+        inline: |
+          TOOLBOX_DOCKER_IMAGE=debian
+    - path: /etc/hostname
+      mode: 0644
+      contents:
+        inline: |
+          gw
+    - path: /etc/systemd/timesyncd.conf
+      mode: 0644
+      contents:
+        inline: |
+          [Time]
+          NTP=0.dk.pool.ntp.org 1.dk.pool.ntp.org 2.dk.pool.ntp.org 3.dk.pool.ntp.org
+    - path: /etc/ssh/sshd_config
+      mode: 0600
+      contents:
+        inline: |
+          # Use most defaults for sshd configuration.
+          Subsystem sftp internal-sftp
+          ClientAliveInterval 180
+          UseDNS no
+          UsePAM yes
+          PrintLastLog no # handled by PAM
+          PrintMotd no # handled by PAM
+          PermitRootLogin no
+          AuthenticationMethods publickey
+    - path: /etc/sysctl.d/ip_forward.conf
+      mode: 0644
+      contents:
+        inline: |
+          net.ipv4.ip_forward=0
+systemd:
+  units:
+    - name: etc-systemd-network.mount
+      enabled: false
+      contents: |
+        [Unit]
+        Before=network-pre.target
+        After=data.mount
+        Wants=network-pre.target
+        [Mount]
+        What=/data/routainer/overlay/network
+        Where=/etc/systemd/network
+        Type=none
+        Options=bind
+        [Install]
+        WantedBy=local-fs.target
+    - name: etc-systemd-nspawn.mount
+      enabled: false
+      contents: |
+        [Unit]
+        Before=network-pre.target
+        After=data.mount
+        Wants=network-pre.target
+        [Mount]
+        What=/data/routainer/overlay/nspawn
+        Where=/etc/systemd/nspawn
+        Type=none
+        Options=bind
+        [Install]
+        WantedBy=local-fs.target
