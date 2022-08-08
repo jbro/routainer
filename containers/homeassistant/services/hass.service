@@ -2,7 +2,7 @@
 Description=Home Assistant
 After=network-online.target
 [Service]
-ExecStart=/srv/homeassistant/bin/hass -c /srv/homeassistant/config
+ExecStart=/srv/homeassistant/bin/hass -v -c /srv/homeassistant/config
 
 [Install]
 WantedBy=multi-user.target
