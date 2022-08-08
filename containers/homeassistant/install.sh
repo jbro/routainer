@@ -10,7 +10,7 @@ cd /srv/homeassistant
 python3 -m venv .
 . bin/activate
 python3 -m pip install wheel
-pip3 install homeassistant
+pip3 install homeassistant sqlalchemy fnvhash
 systemctl link /opt/services/hass.service
 systemctl enable hass.service
 systemctl start hass.service
