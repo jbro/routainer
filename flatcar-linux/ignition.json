@@ -1,0 +1,87 @@
+{
+  "ignition": {
+    "version": "3.3.0"
+  },
+  "passwd": {
+    "users": [
+      {
+        "name": "root",
+        "passwordHash": "$6$BOUe8yTJGlJfNOOV$ISwOdEA4y8Fv5o.OrYyKaPyc6lsgTNdnHFBzdY9MZgkMBu.GxcoIYoNAG.t.yDx5G83hXhZJYVJ4tbRVQHAnt/"
+      },
+      {
+        "name": "core",
+        "sshAuthorizedKeys": [
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFWx2DiRk4jLKCLi6eBmAkrEfI2D9+P8Bs4izX6XzJDB"
+        ]
+      },
+      {
+        "groups": [
+          "sudo"
+        ],
+        "name": "jbr",
+        "sshAuthorizedKeys": [
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFWx2DiRk4jLKCLi6eBmAkrEfI2D9+P8Bs4izX6XzJDB"
+        ],
+        "shell": "/data/routainer/coresos/toolbox-ssh"
+      }
+    ]
+  },
+  "storage": {
+    "files": [
+      {
+        "path": "/etc/default/toolbox",
+        "contents": {
+          "compression": "",
+          "source": "data:,TOOLBOX_DOCKER_IMAGE%3Ddebian%0A"
+        },
+        "mode": 420
+      },
+      {
+        "path": "/etc/hostname",
+        "contents": {
+          "compression": "",
+          "source": "data:,gw%0A"
+        },
+        "mode": 420
+      },
+      {
+        "path": "/etc/systemd/timesyncd.conf",
+        "contents": {
+          "compression": "gzip",
+          "source": "data:;base64,H4sIAAAAAAAC/4oOycxNjeXyCwmwNdBLydYryM/P0csrKdDLL0pXMMQQMcIQMUYX4QIEAAD//2U5SkNTAAAA"
+        },
+        "mode": 420
+      },
+      {
+        "path": "/etc/ssh/sshd_config",
+        "contents": {
+          "compression": "gzip",
+          "source": "data:;base64,H4sIAAAAAAAC/2yOsWrEMBBEe33FwNUJSZfWJE3gHEyO+wDZWp+XyLuHdmXQ3wcl7XUzvJlhTrgaYVdzJFpjzW5YtcBsS1hUVr7VEp1VnsOlztbMaYetfgeLU5GYn7oL75lJfMh80GcHR8x4fXsJV6OPrwtEu5qGEY0sTIXFz9H8rDeI4oQtSsqUMDdMw/gfGNXTY0plZ/9W7X2WPj5U30icl7+vI/mmyXCvc+blh1r4DQAA//8oxlJd6AAAAA=="
+        },
+        "mode": 384
+      },
+      {
+        "path": "/etc/sysctl.d/ip_forward.conf",
+        "contents": {
+          "compression": "",
+          "source": "data:,net.ipv4.ip_forward%3D0%0A"
+        },
+        "mode": 420
+      }
+    ]
+  },
+  "systemd": {
+    "units": [
+      {
+        "contents": "[Unit]\nBefore=network-pre.target\nAfter=data.mount\nWants=network-pre.target\n[Mount]\nWhat=/data/routainer/overlay/network\nWhere=/etc/systemd/network\nType=none\nOptions=bind\n[Install]\nWantedBy=local-fs.target\n",
+        "enabled": false,
+        "name": "etc-systemd-network.mount"
+      },
+      {
+        "contents": "[Unit]\nBefore=network-pre.target\nAfter=data.mount\nWants=network-pre.target\n[Mount]\nWhat=/data/routainer/overlay/nspawn\nWhere=/etc/systemd/nspawn\nType=none\nOptions=bind\n[Install]\nWantedBy=local-fs.target\n",
+        "enabled": false,
+        "name": "etc-systemd-nspawn.mount"
+      }
+    ]
+  }
+}
