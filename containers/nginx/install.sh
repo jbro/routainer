@@ -7,11 +7,11 @@ apt-get install unattended-upgrades apt-listchanges
 
 apt-get install -y python3-pip nginx
 
-pip3 install --upgrade pip
-pip3 install certbot
-pip3 install certbot-nginx
-pip3 install certbot-plugin-gandi
-pip3 install cryptography --upgrade
+pip3 install --break-system-packages --upgrade pip
+pip3 install --break-system-packages certbot
+pip3 install --break-system-packages certbot-nginx
+pip3 install --break-system-packages certbot-plugin-gandi
+pip3 install --break-system-packages cryptography --upgrade
 
 systemctl stop nginx
 rm -fr /etc/nginx/sites-enabled/
@@ -20,5 +20,4 @@ rm -fr /etc/letsencrypt/
 ln -s /opt/nginx/letsencrypt /etc/
 systemctl start nginx
 
-certbot renew -q -a certbot-plugin-gandi:dns --certbot-plugin-gandi:dns-credentials /etc/letsencrypt/gandi.ini --server https://acme-v02.api.letsencrypt.org/directory
-
+certbot renew -q  --authenticator dns-gandi --dns-gandi-credentials  /etc/letsencrypt/gandi.ini
