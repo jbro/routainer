@@ -16,5 +16,6 @@ cp /opt/routainer/roothints.* /usr/lib/systemd/system/
 systemctl daemon-reload
 systemctl enable roothints.timer
 curl -o /etc/unbound/root.hints https://www.internic.net/domain/named.cache
+unbound-control-setup
 systemctl start unbound
 echo "nameserver 127.0.0.1" > /etc/resolv.conf
