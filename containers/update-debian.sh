@@ -1,5 +1,5 @@
 #!/bin/sh
-INCLUDE="systemd-container,kitty-terminfo,iptables"
+INCLUDE="systemd-container,kitty-terminfo,iptables,ca-certificates,dbus"
 DATE=$(date +%Y%m%d%H%M%S)
 RELEASE=stable
 IMAGEPATH="/media/root/var/lib/machines/debian-$RELEASE-$DATE"
